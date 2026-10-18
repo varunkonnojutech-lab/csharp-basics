@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Build all projects
+        run: |
+          for proj in 01-HelloWorld 02-OopBasics 03-CollectionsAndLinq 04-AsyncAwait 05-FileHandling 06-MiniProjects/TodoCli 06-MiniProjects/ExpenseTracker; do
+            echo "Building $proj..."
+            dotnet build "$proj" -c Release --nologo
+          done

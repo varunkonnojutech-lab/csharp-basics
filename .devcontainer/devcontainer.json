@@ -1,0 +1,1 @@
+{"customizations":{"vscode":{"extensions":["ms-dotnettools.csharp"]}},"image":"mcr.microsoft.com/devcontainers/dotnet:1-8-bookworm","name":"csharp-basics","postCreateCommand":"for p in 01-HelloWorld 02-OopBasics 03-CollectionsAndLinq 04-AsyncAwait 05-FileHandling 06-MiniProjects/TodoCli 06-MiniProjects/ExpenseTracker; do dotnet restore \"$p\"; done"}
